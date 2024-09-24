@@ -1,0 +1,346 @@
+/*Обнуление*/
+* {
+   padding: 0;
+   margin: 0;
+   border: 0;
+}
+*,
+*:before,
+*:after {
+   -moz-box-sizing: border-box;
+   -webkit-box-sizing: border-box;
+   box-sizing: border-box;
+}
+:focus,
+:active {
+   outline: none;
+}
+a:focus,
+a:active {
+   outline: none;
+}
+
+nav,
+footer,
+header,
+aside {
+   display: block;
+}
+
+html,
+body {
+   height: 100%;
+   width: 100%;
+   font-size: 100%;
+   line-height: 1;
+   font-size: 14px;
+   -ms-text-size-adjust: 100%;
+   -moz-text-size-adjust: 100%;
+   -webkit-text-size-adjust: 100%;
+}
+input,
+button,
+textarea {
+   font-family: inherit;
+}
+
+input::-ms-clear {
+   display: none;
+}
+button {
+   cursor: pointer;
+}
+button::-moz-focus-inner {
+   padding: 0;
+   border: 0;
+}
+a,
+a:visited {
+   text-decoration: none;
+}
+a:hover {
+   text-decoration: none;
+}
+ul li {
+   list-style: none;
+}
+img {
+   vertical-align: top;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+   font-size: inherit;
+   font-weight: 400;
+}
+/*--------------------*/
+
+@import url(https://fonts.googleapis.com/css?family=Merriweather:700);
+@import url(https://fonts.googleapis.com/css?family=Arimo:700);
+@import url(https://fonts.googleapis.com/css?family=Noto+Sans:regular);
+@import url(https://fonts.googleapis.com/css?family=Raleway:regular,900);
+
+body {
+   font-family: Noto Sans;
+}
+
+$width: 1530px;
+
+//? Colors
+$white: #ffff;
+$gray: #4a4a4a;
+$grayLight: #d3d3d3;
+$primary: #df875a;
+$secondary: #fbf7f3;
+$black: #31302e;
+
+a:hover .social-icon {
+   fill: $primary;
+}
+
+.wrapper {
+   min-height: 100vh;
+   position: relative;
+   overflow: hidden;
+   padding: 0 10px;
+}
+
+._lock {
+   overflow: hidden;
+}
+
+.modal {
+   display: none;
+   width: 65vw;
+   margin: 0 auto;
+   height: 600px;
+   background: url(../img/screen/background.jpg) center no-repeat;
+   padding: 100px 20px 40px 20px;
+   overflow: hidden;
+
+   &__close {
+      position: absolute;
+      top: 40px;
+      right: 50px;
+      padding: 12.5px;
+      background-color: $primary;
+   }
+
+   &__content {
+      position: relative;
+      z-index: 3;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+   }
+
+   &__title {
+      font-family: Merriweather;
+      font-size: clamp(25px, 6vw, 40px);
+      line-height: 120%;
+      color: $black;
+      margin-bottom: 10px;
+   }
+
+   &__subtitle {
+      font-family: Arimo;
+      font-size: clamp(23px, 5vw, 32px);
+      line-height: 130%;
+      color: $primary;
+      margin-bottom: 40px;
+   }
+
+   &__form {
+      display: flex;
+      flex-direction: column;
+      width: 360px;
+      gap: 20px;
+   }
+
+   &__input {
+      font-size: 18px;
+      line-height: 130%;
+      padding: 14px 30px;
+   }
+
+   &__button {
+      position: relative;
+      overflow: hidden;
+      font-family: Arimo;
+      font-size: 18px;
+      line-height: 115%;
+      color: $white;
+      padding: 15px 40px;
+      background-color: $primary;
+      margin-top: 15px;
+      margin-bottom: 15px;
+
+      span {
+         position: relative;
+         z-index: 2;
+      }
+   }
+
+   &__button::before {
+      content: "";
+      background-color: $black;
+      height: 100%;
+      width: 100%;
+      position: absolute;
+      z-index: 1;
+      top: 0;
+      left: -100%;
+      transition: all 0.4s;
+   }
+
+   &__button:hover::before {
+      left: 0;
+   }
+
+   &__description {
+      color: $black;
+      font-size: clamp(13px, 4vw, 16px);
+      line-height: 130%;
+
+      a {
+         text-decoration: underline;
+         color: $black;
+      }
+   }
+
+   &__img {
+      position: absolute;
+      z-index: 1;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+   }
+
+   @media (max-width: 768px) {
+      width: 90vw;
+
+      &__close {
+         top: 20px;
+         right: 30px;
+      }
+   }
+
+   @media (max-width: 425px) {
+      &__form {
+         max-width: 300px;
+      }
+   }
+
+   @media (max-width: 375px) {
+      &__close {
+         padding: 7px;
+         top: 15px;
+         right: 15px;
+      }
+
+      &__button {
+         padding: 10px 30px;
+         font-size: 16px;
+      }
+
+      &__form {
+         max-width: 250px;
+      }
+   }
+}
+
+.modal-verify {
+   width: 65vw;
+   height: 340px;
+   background: url(../img/screen/background.jpg) center no-repeat;
+   padding: 100px 20px 40px 20px;
+   text-align: center;
+   margin: 0 auto;
+
+   &__close {
+      position: absolute;
+      top: 40px;
+      right: 50px;
+      padding: 12.5px;
+      background-color: $primary;
+   }
+
+   &__title {
+      font-family: Merriweather;
+      font-size: clamp(25px, 5vw, 40px);
+      line-height: 120%;
+      color: $black;
+      margin-bottom: 40px;
+   }
+
+   &__button {
+      position: relative;
+      overflow: hidden;
+      font-family: Arimo;
+      font-size: 18px;
+      line-height: 115%;
+      color: $white;
+      padding: 15px 135px;
+      background-color: $primary;
+      margin: 0 auto;
+
+      span {
+         position: relative;
+         z-index: 2;
+      }
+   }
+
+   &__button::before {
+      content: "";
+      background-color: $black;
+      height: 100%;
+      width: 100%;
+      position: absolute;
+      z-index: 1;
+      top: 0;
+      left: -100%;
+      transition: all 0.4s;
+   }
+
+   &__button:hover::before {
+      left: 0;
+   }
+
+   @media (max-width: 768px) {
+      width: 90vw;
+
+      &__close {
+         top: 20px;
+         right: 30px;
+      }
+
+      &__button {
+         padding: 15px 40px;
+      }
+   }
+
+   @media (max-width: 375px) {
+      &__close {
+         padding: 7px;
+         top: 15px;
+         right: 15px;
+      }
+
+      &__button {
+         padding: 10px 30px;
+         font-size: 16px;
+      }
+   }
+}
+
+.fancybox__backdrop {
+   background: none;
+   background-color: rgba(0, 0, 0, 0.3);
+}
+
+@import "_header", "_main", "_footer";
